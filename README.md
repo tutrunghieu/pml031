@@ -14,4 +14,4 @@ To select columns for training, we need to remove NA columns first. They will no
 
 Now that we have the reliable prediction model (small training error, small testing error), we can apply the model to predict new data. 
 
-We have to set up a new process to process the new training data 
+We have to set up a new process for the unlabelled data and we will fill the last column of the table with the predicted values. This leads to the reuse of feature transformation model (the variable selector) and the trained model. In our implementation, we train and use the model directly. Therefore when we have updated training data, we only have to run the whole program again.
