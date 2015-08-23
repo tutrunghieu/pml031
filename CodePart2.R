@@ -81,7 +81,7 @@ fit2 <- function(P, res)
 ## our main process
 main2 <- function()
 {
-	wf <- "C:/Users/henrytu/Desktop/pml031-final/";
+	wf <- "/path/to/pml031-project";
 	f1 <- paste0(wf, "pml-training.csv");
 	f2 <- paste0(wf, "pml-testing.csv"); 
 	resf <- paste0(wf, "pml-testing-labelled.csv");
