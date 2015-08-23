@@ -1,7 +1,7 @@
-# pml031
-To build a prediction system using R
+# A course project pml031
+To build a prediction system using R based on the given training/testing dataset 
 
-## Part 1, to select and to build a model with small training/testing error
+## Part 1, to find a model that fits pml-training.csv
 
 When the learning table we have with 19622 rows and 160 columns, we need to reduce the size of the table before we can fit the model in it. Otherwise, it will take forever to complete the training. <br>
 
@@ -11,7 +11,7 @@ To select columns for training, we need to remove NA columns first. They will no
 
 See [CodePart1.R](https://github.com/tutrunghieu/pml031/blob/master/CodePart1.R) for <b>runnable</b> version and [CodePart1.md](https://github.com/tutrunghieu/pml031/blob/master/CodePart1.md) for <b>readable</b> version.
 
-## Part 2, to predict unlabled samples
+## Part 2, to label samples in pml-testing.csv
 
 Now that we have the reliable prediction model (small training error, small testing error), we can apply the model to predict new data. 
 
