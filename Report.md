@@ -1,22 +1,7 @@
-A report on building a prediction model
-for course Practical Machine Learning from 03-aug-2015 to 31-aug-2015
+# A report on building a prediction model for course Practical Machine Learning from 03-aug-2015 to 31-aug-2015
 (Henry T.H. Tu, 23-aug-2015)
 
- 
-
- 
-1. Problem_________________________________________________________________ 1
-2. Shrinking the training table__________________________________________________ 2
-3. Selecting the learning model_________________________________________________ 2
-4. Flipping the coin: changing the training size______________________________________ 3
-5. The model we have chosen__________________________________________________ 3
-6. Applying the model to pml-testing.csv__________________________________________ 4
-7. The final result on pml-testing.csv_____________________________________________ 4
- 
-
- 
-
-1. Problem
+## 1. Problem
 + Our main task is to label the instances or rows in the file pml-testing.csv given the training data we have in pml-training.csv
 
 + It is not straight-forward to load the table pml-training.csv and fit any learning model to the table because the table is large (19622 rows and 160 columns) and it is very slow to learn any training model. We need to quickly locate the model we want in few hours. We decided to reduce the size of the table before applying any model.
@@ -24,7 +9,7 @@ for course Practical Machine Learning from 03-aug-2015 to 31-aug-2015
 pml-training:  19622 160
 pml-testing.csv :  20 160
  
-Table 1: the sizes of the training/testing data
+### Table 1: the sizes of the training/testing data
  
 
 + We completed 3 tasks to solve the problem:
@@ -37,7 +22,7 @@ Table 1: the sizes of the training/testing data
 
  
 
-2. Shrinking the training table
+## 2. Shrinking the training table
 + We cannot fit the model with 160 variables and we saw that many columns contains blank (NA) values. Therefore, our first task is to remove those columns and we can reduce the size of the table.
 
 + Given the the data, we can use the following procedure to select columns containing NA values.
@@ -51,14 +36,14 @@ for(k in 1:160)
                    if( hasNA > 0 ) sel <- c(sel, k);
 }
 data <- data[, -sel];
-Table 2: the code to select the predictors / columns
+### Table 2: the code to select the predictors / columns
 + In fact, we saw that the first variables (after removing NA columns) are enough to have good training results without using all the variables. In our code, we choose to use the several fields (see section 5). But our code is flexible enough to test with different column sets (predictor sets).
 
 + We also tried to apply PCA processing with preprocess='pca' but the result got worse. We have to admit that PCA was not our choice to reduce the dimensionality of the table.
 
  
 
-3. Selecting the learning model
+## 3. Selecting the learning model
 + When we have the small data table (in our case, we have around 1000 rows and 6 columns), we can fit many models as we can within an hour.
 
 + We tried different model, including method='nb', method='rpart', method='rf', and we saw that method='rf' is the one with smallest values. Therefore, we choose to use Random Forest as the learning model in the next sections.
@@ -96,11 +81,10 @@ Model:  rpartModel size:  23
 Training error 1166  or  0.5936864
 Testing error 10721  or  0.6071469
  
-Table 3: what is the learning model?
-Run the file CodePart1-model-selection.R to see this table
+### Table 3: what is the learning model? Run the file CodePart1-model-selection.R to see this table
  
 
-4. Flipping the coin: changing the training size
+##  4. Flipping the coin: changing the training size
 + In our model, the training size is controlled by the coin. We use small value p=0.1 implies or n=19622*0.1 training rows in building the model.
 
 + We can use p=0.7 and we see that there is only 1 error in nearly 6000 testing items.
@@ -149,14 +133,14 @@ Model size:  23
 Training error 0  or  0
 Testing error 1  or  0.0001699235
  
-Table 4: what is the optimal training size?
+###  Table 4: what is the optimal training size?
  
 Run the file CodePart1-changing-trainsize.R to see the following table
  
 
  
 
-5. The model we have chosen
+##  5. The model we have chosen
 + We use p = 0.7 in training to reduce both training/testing errors before we apply to the unlabeled data in the pml-testing.csv file
 
 + We use method='rf' to get minimal error in the training dataset
@@ -168,7 +152,7 @@ testing predictors =  [ new_window num_window roll_belt pitch_belt yaw_belt *pro
 p = 0.7
  
 method = 'rf'
-Table 5: our final model to label pml-training.csv
+###  Table 5: our final model to label pml-training.csv
  
 
  
@@ -179,14 +163,14 @@ Table 5: our final model to label pml-training.csv
 
  
 
-6. Applying the model to pml-testing.csv
+##  6. Applying the model to pml-testing.csv
 + In our framework, we transform both data files in the same manner. Therefore, they will have the same schema / structure and they can be used in the same model.
 
 + To do that, we develop the functions (load2, select2, fit2) which works in both files in variable selection and in training/testing. Please refer to the file CodePart2.R for the details.
 
  
 
-7. The final result on pml-testing.csv
+## 7. The final result on pml-testing.csv
 + This is our final result
 
 1             B
@@ -209,7 +193,7 @@ Table 5: our final model to label pml-training.csv
 18           B
 19           B
 20           B
-Table 6: our final result
+### Table 6: our final result
  
 
  
