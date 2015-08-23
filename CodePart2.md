@@ -87,11 +87,23 @@ fit2 <- function(P, res)
 }
 </code></pre>
 
-## the main part of the code
+
+## our main process
 <pre><code>
-wf <- "/path/to/pml031-project/";
-f1 <- paste0(wf, "pml-training.csv");
-f2 <- paste0(wf, "pml-testing.csv"); 
-resf <- paste0(wf, "pml-testing-labelled.csv");
-cat(rep("\n", 20)); cat("Working folder: ", wf, "\n"); P <- load2(f1, f2); P <- select2(P); fit2(P, resf);
+main2 <- function()
+{
+	wf <- "/path/to/pml031-project/";
+	f1 <- paste0(wf, "pml-training.csv");
+	f2 <- paste0(wf, "pml-testing.csv"); 
+	resf <- paste0(wf, "pml-testing-labelled.csv");
+
+	cat("Working folder: ", wf, "\n"); 
+	P <- load2(f1, f2); P <- select2(P); fit2(P, resf);
+	cat("-------THE END\n");
+}
+</code></pre>
+
+## call to start our main process
+<pre><code>
+cat(rep("\n", 20)); main2();
 </code></pre>
