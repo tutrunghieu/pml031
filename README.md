@@ -9,8 +9,7 @@ To select the rows for training, we can use createDataPartition(y=classColumn, p
 
 To select columns for training, we need to remove NA columns first. They will not contribute to training/prediction process. Then we can select few variables / predictors to fit the model. We cannot use all the predictors.
 
-See <font color=red>CodePart1.R</font> for <b>runnable</b> version and <font color=red>CodePart1.md</font> for <b>readable</b> version.
-
+See <b>CodePart1.R</b> for <b>runnable</b> version and <b>CodePart1.md</b> for <b>readable</b> version.
 
 ## Part 2, to predict unlabled samples
 
@@ -18,4 +17,4 @@ Now that we have the reliable prediction model (small training error, small test
 
 We have to set up a new process for the unlabelled data and we will fill the last column of the table with the predicted values. This leads to the reuse of feature transformation model (the variable selector) and the trained model. In our implementation, we train and use the model directly. Therefore when we have updated training data, we only have to run the whole program again.
 
-See <font color=red>CodePart2.R</font> for <b>runnable</b> version and <font color=red>CodePart2.md</font> for <b>readable</b> version.
+See <b>CodePart2.R</b> for <b>runnable</b> version and <b>CodePart2.md</b> for <b>readable</b> version.
