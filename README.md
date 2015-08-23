@@ -19,4 +19,3 @@ We have to set up a new process for the unlabelled data and we will fill the las
 
 See [CodePart2.R](https://github.com/tutrunghieu/pml031/blob/master/CodePart2.R) for <b>runnable</b> version and [CodePart2.md](https://github.com/tutrunghieu/pml031/blob/master/CodePart2.md) for <b>readable</b> version.
 
-<img src='https://cloud.githubusercontent.com/assets/2976884/9427722/7a6ddb8c-49b6-11e5-9a8f-07699f80425c.png'>
