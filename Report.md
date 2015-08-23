@@ -6,6 +6,9 @@
 
 + It is not straight-forward to load the table pml-training.csv and fit any learning model to the table because the table is large (19622 rows and 160 columns) and it is very slow to learn any training model. We need to quickly locate the model we want in few hours. We decided to reduce the size of the table before applying any model.
 
+<img src='https://cloud.githubusercontent.com/assets/2976884/9428128/51e20252-49c9-11e5-979d-1a67b078e79a.png'>
+
+
 -------------------------------
 | pml-training|  19622 160|
 | pml-testing.csv |  20 160|
@@ -21,6 +24,7 @@
 
 + And finally (see section 6 and 7), when we have the reliable model, we only have to use it to label / predict the examples in the file pml-testing.csv
 
+<img src='https://cloud.githubusercontent.com/assets/2976884/9428129/562126d6-49c9-11e5-82dd-ca633d867673.png'>
  
 
 ## 2. Shrinking the training table
@@ -52,38 +56,8 @@ data <- data[, -sel];
 
 + We tried different model, including method='nb', method='rpart', method='rf', and we saw that method='rf' is the one with smallest values. Therefore, we choose to use Random Forest as the learning model in the next sections.
 
--------Splitting
-Training coin:  0.1
-Training size:  1964 6
-Testing size:  17658 6
- 
--------Splitting
-Training coin:  0.1
-Training size:  1964 6
-Testing size:  17658 6
- 
--------Splitting
-Training coin:  0.1
-Training size:  1964 6
-Testing size:  17658 6
- 
--------Fitting
-Model:  nbModel size:  23
--------Evaluation
-Training error 1154  or  0.5875764
-Testing error 10448  or  0.5916865
- 
--------Fitting
-Model:  rfModel size:  23
--------Evaluation
-Training error 0  or  0
-Testing error 286  or  0.01619662
- 
--------Fitting
-Model:  rpartModel size:  23
--------Evaluation
-Training error 1166  or  0.5936864
-Testing error 10721  or  0.6071469
+<img src='https://cloud.githubusercontent.com/assets/2976884/9428131/59025bb8-49c9-11e5-9b67-a1a6c1ab5876.png'>
+
  
 ### Table 3: what is the learning model? Run the file CodePart1-model-selection.R to see this table
  
@@ -93,49 +67,7 @@ Testing error 10721  or  0.6071469
 
 + We can use p=0.7 and we see that there is only 1 error in nearly 6000 testing items.
 
--------Splitting
-Training coin:  0.1
-Training size:  1964 6
-Testing size:  17658 6
- 
--------Splitting
-Training coin:  0.2
-Training size:  3927 6
-Testing size:  15695 6
- 
--------Splitting
-Training coin:  0.5
-Training size:  9812 6
-Testing size:  9810 6
- 
--------Splitting
-Training coin:  0.7
-Training size:  13737 6
-Testing size:  5885 6
- 
--------Fitting
-Model size:  23
--------Evaluation
-Training error 0  or  0
-Testing error 236  or  0.01336505
- 
--------Fitting
-Model size:  23
--------Evaluation
-Training error 0  or  0
-Testing error 109  or  0.006944887
- 
--------Fitting
-Model size:  23
--------Evaluation
-Training error 0  or  0
-Testing error 8  or  0.0008154944
- 
--------Fitting
-Model size:  23
--------Evaluation
-Training error 0  or  0
-Testing error 1  or  0.0001699235
+<img src='https://cloud.githubusercontent.com/assets/2976884/9428132/5b7286c0-49c9-11e5-8d3f-b4de82e23932.png'>
  
 ###  Table 4: what is the optimal training size?
  
@@ -149,21 +81,7 @@ Run the file CodePart1-changing-trainsize.R to see the following table
 
 + We use method='rf' to get minimal error in the training dataset
 
-training predictors =  [ new_window num_window roll_belt pitch_belt yaw_belt *classe ]
- 
-testing predictors =  [ new_window num_window roll_belt pitch_belt yaw_belt *problem_id]
- 
-p = 0.7
- 
-method = 'rf'
-###  Table 5: our final model to label pml-training.csv
- 
-
- 
-
- 
-
- 
+<img src='https://cloud.githubusercontent.com/assets/2976884/9428133/5feb8dbe-49c9-11e5-9e86-b2123b560462.png'>
 
  
 
@@ -175,28 +93,8 @@ method = 'rf'
  
 
 ## 7. The final result on pml-testing.csv
-+ This is our final result
+<img src='https://cloud.githubusercontent.com/assets/2976884/9428134/64a9cb4a-49c9-11e5-9e6c-33858d4a0201.png'>
 
-1             B
-2             A
-3             B
-4             A
-5             A
-6             E
-7             D
-8             B
-9             A
-10           A
-11           B
-12           C
-13           B
-14           A
-15           E
-16           E
-17           A
-18           B
-19           B
-20           B
 ### Table 6: our final result
  
 
