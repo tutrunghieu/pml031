@@ -1,7 +1,10 @@
 ## to clear all variables
-rm( list=ls() ); cat( ls(), "\n");
+<pre><code>
+rm( list=ls() ); cat( ls(), "\n"); 
+</code></pre>
 
 ## the function to load training/testing file
+<pre><code>
 load2 <- function(file1, file2)
 { 
 	cat("-------Loading data\n"); 
@@ -9,8 +12,10 @@ load2 <- function(file1, file2)
 	d2 <- read.csv(file2, header=TRUE); cat("Data size: ", dim(d2), "\n");
       return( list("d1"=d1, "d2"=d2) ); 
 }
+</code></pre>
 
 ## the function to transform both training/testing data
+<pre><code>
 select2 <- function(P)
 { 
 	data = P$d1;
@@ -43,16 +48,20 @@ select2 <- function(P)
 
      return(P); 
 }
+</code></pre>
 
 ## the function to measure if the model is reliable
+<pre><code>
 error1 <- function(M, D, msg)
 {
 	rowD <- dim(D)[1];
 	E <- sum( predict(M, newdata=D) != D$classe); 
 	cat(msg, E, " or ", E/rowD, "\n");
 }
+</code></pre>
 
 ## the function to train the model with training data and label the new data
+<pre><code>
 fit2 <- function(P, res)
 {
 	D <- P$d1; D2 <- P$d2;
@@ -76,11 +85,13 @@ fit2 <- function(P, res)
 	cat(as.character(R2$classe), "\n");
       write.table(R2, file = res, sep = ",", row.names = FALSE, col.names = TRUE)
 }
-
+</code></pre>
 
 ## the main part of the code
+<pre><code>
 wf <- "/path/to/pml031-project/";
 f1 <- paste0(wf, "pml-training.csv");
 f2 <- paste0(wf, "pml-testing.csv"); 
 resf <- paste0(wf, "pml-testing-labelled.csv");
 cat(rep("\n", 20)); cat("Working folder: ", wf, "\n"); P <- load2(f1, f2); P <- select2(P); fit2(P, resf);
+</code></pre>
