@@ -11,3 +11,7 @@ To select columns for training, we need to remove NA columns first. They will no
 
 
 ## Part 2, to predict unlabled samples
+
+Now that we have the reliable prediction model (small training error, small testing error), we can apply the model to predict new data. 
+
+We have to set up a new process to process the new training data 
