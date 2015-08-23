@@ -7,13 +7,7 @@
 + It is not straight-forward to load the table pml-training.csv and fit any learning model to the table because the table is large (19622 rows and 160 columns) and it is very slow to learn any training model. We need to quickly locate the model we want in few hours. We decided to reduce the size of the table before applying any model.
 
 <img src='https://cloud.githubusercontent.com/assets/2976884/9428128/51e20252-49c9-11e5-979d-1a67b078e79a.png'>
-
-
--------------------------------
-| pml-training|  19622 160|
-| pml-testing.csv |  20 160|
-
-### Table 1: the sizes of the training/testing data
+#### Table 1: the sizes of the training/testing data
  
 
 + We completed 3 tasks to solve the problem:
