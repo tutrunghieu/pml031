@@ -18,3 +18,5 @@ Now that we have the reliable prediction model (small training error, small test
 We have to set up a new process for the unlabelled data and we will fill the last column of the table with the predicted values. This leads to the reuse of feature transformation model (the variable selector) and the trained model. In our implementation, we train and use the model directly. Therefore when we have updated training data, we only have to run the whole program again.
 
 See [CodePart2.R](https://github.com/tutrunghieu/pml031/blob/master/CodePart2.R) for <b>runnable</b> version and [CodePart2.md](https://github.com/tutrunghieu/pml031/blob/master/CodePart2.md) for <b>readable</b> version.
+
+[picture1](https://cloud.githubusercontent.com/assets/2976884/9427722/7a6ddb8c-49b6-11e5-9a8f-07699f80425c.png)
