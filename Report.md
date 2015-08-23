@@ -9,7 +9,6 @@
 -------------------------------
 | pml-training|  19622 160|
 | pml-testing.csv |  20 160|
--------------------------------
 
 ### Table 1: the sizes of the training/testing data
  
@@ -29,6 +28,7 @@
 
 + Given the the data, we can use the following procedure to select columns containing NA values.
 
+-------------------------------
 F <- names(data); cols <- dim(data)[2];
 sel <- c(1, 2, 3, 4, 5);
 for(k in 1:160)
@@ -38,6 +38,8 @@ for(k in 1:160)
                    if( hasNA > 0 ) sel <- c(sel, k);
 }
 data <- data[, -sel];
+-------------------------------
+
 ### Table 2: the code to select the predictors / columns
 + In fact, we saw that the first variables (after removing NA columns) are enough to have good training results without using all the variables. In our code, we choose to use the several fields (see section 5). But our code is flexible enough to test with different column sets (predictor sets).
 
