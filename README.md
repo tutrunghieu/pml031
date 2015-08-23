@@ -9,7 +9,7 @@ To select the rows for training, we can use createDataPartition(y=classColumn, p
 
 To select columns for training, we need to remove NA columns first. They will not contribute to training/prediction process. Then we can select few variables / predictors to fit the model. We cannot use all the predictors.
 
-See <b>CodePart1.R</b> for <b>runnable</b> version and <b>CodePart1.md</b> for <b>readable</b> version.
+See [CodePart1.R](https://github.com/tutrunghieu/pml031/blob/master/CodePart1.md) for <b>runnable</b> version and <b>CodePart1.md</b> for <b>readable</b> version.
 
 ## Part 2, to predict unlabled samples
 
