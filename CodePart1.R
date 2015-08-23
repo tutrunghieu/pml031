@@ -64,7 +64,7 @@ fit1 <- function(data)
 
 main1 <- function()
 {
-	wf <- "C:/Users/henrytu/Desktop/pml031-final/";
+	wf <- "/path/to/pml031-project";
 	f1 <- paste0(wf, "pml-training.csv");
 
 	cat("Working folder:", wf, "\n"); 
